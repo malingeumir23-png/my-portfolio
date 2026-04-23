@@ -1,0 +1,186 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: linear-gradient(135deg, #FFEFD0, #A3D9E2);
+    color: #485978;
+}
+
+header {
+    text-align: center;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(72, 89, 120, 0.15);
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+    color: #232830;
+}
+
+header p {
+    color: #485978;
+}
+
+section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px;
+}
+
+h2 {
+    color: #232830;
+    margin-bottom: 15px;
+}
+
+section p {
+    line-height: 1.6;
+}
+
+.personal {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 14px;
+    border: 1px solid rgba(72, 89, 120, 0.15);
+    padding: 25px;
+}
+
+.personal p {
+    margin: 10px 0;
+    padding-left: 10px;
+    border-left: 3px solid #FFB133;
+    color: #485978;
+}
+
+.grid {
+    column-count: 3;
+    column-gap: 15px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 15px;
+    display: inline-block;
+    width: 100%;
+    border: 1px solid rgba(72, 89, 120, 0.15);
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #FFB133;
+    box-shadow: 0 10px 25px rgba(72, 89, 120, 0.15);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #FFB133;
+    transition: 0.3s ease;
+}
+
+.card:hover::before {
+    width: 100%;
+}
+
+.card h3 {
+    color: #232830;
+}
+
+.card p {
+    color: #485978;
+}
+
+.contact {
+    text-align: center;
+}
+
+.contact a {
+    text-decoration: none;
+    color: #485978;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.6);
+    transition: 0.25s ease;
+}
+
+.contact a:hover {
+    color: #FFB133;
+    transform: translateY(-2px);
+}
+
+.material-symbols-outlined {
+    font-size: 20px;
+    color: #232830;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #232830;
+    color: #A3D9E2;
+}
+
+@media (max-width: 800px) {
+    .grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 500px) {
+    .grid {
+        column-count: 1;
+    }
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(35, 40, 48, 0.6);
+    backdrop-filter: blur(8px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 500px;
+    width: 85%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    animation: pop 0.25s ease;
+}
+
+.modal h3 {
+    color: #232830;
+    margin-bottom: 10px;
+}
+
+.modal p {
+    color: #485978;
+    line-height: 1.6;
+}
+
+@keyframes pop {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}

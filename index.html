@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eumir Maling Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+    <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+        <h3 id="modalTitle"></h3>
+        <p id="modalDesc"></p>
+    </div>
+</div>
+
+    <script>
+const cards = document.querySelectorAll(".card");
+const modalOverlay = document.getElementById("modalOverlay");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+
+cards.forEach(card => {
+    card.addEventListener("click", () => {
+        modalTitle.innerText = card.querySelector("h3").innerText;
+        modalDesc.innerText = card.querySelector("p").innerText;
+
+        modalOverlay.classList.add("active");
+    });
+});
+
+modalOverlay.addEventListener("click", (e) => {
+    if (e.target === modalOverlay) {
+        modalOverlay.classList.remove("active");
+    }
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        modalOverlay.classList.remove("active");
+    }
+});
+</script>
+<body>
+
+<header>
+    <h1>Eumir Maling</h1>
+    <p>Data Science | Cloud Computing & AI Enthusiast</p>
+</header>
+
+<section class="about">
+    <h2>About Me</h2>
+    <p>
+        Data Science student working on APIs, geospatial data, and cloud-based applications.
+    </p>
+</section>
+
+<section class="personal">
+    <h2>Personal Information</h2>
+
+    <p><strong>Name:</strong> Eumir Maling</p>
+    <p><strong>Field:</strong> Data Science</p>
+    <p><strong>Location:</strong> Cagayan de Oro, Philippines</p>
+    <p><strong>Focus:</strong> APIs, Geospatial Data, Cloud Applications</p>
+    <p><strong>Status:</strong> Open to internships and collaborations</p>
+</section>
+
+<section class="projects">
+    <h2>Projects</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Fanbase API</h3>
+            <p>FastAPI project providing character and actor data using SQLite and deployed on Render.</p>
+        </div>
+
+        <div class="card">
+            <h3>Bakhaw AI</h3>
+            <p>AI-driven geospatial system for mangrove restoration and coastal protection.</p>
+        </div>
+
+        <div class="card">
+            <h3>Portfolio Website</h3>
+            <p>Responsive personal portfolio built using HTML, CSS, and deployed on Render.</p>
+        </div>
+
+        <div class="card">
+            <h3>Cloud Computing Tasks</h3>
+            <p>Hands-on deployment of APIs and static websites using Render platform.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="contact">
+    <h2>Contact</h2>
+   <p>
+    <a href="mailto:malingeumir02@gmail.com" class="email-link">
+        <span class="material-symbols-outlined">mail</span>
+        malingeumir02@gmail.com
+    </a>
+</p>
+</section>
+
+<footer>
+    <p>© 2026 Eumir Maling</p>
+</footer>
+
+</body>
+</html>
