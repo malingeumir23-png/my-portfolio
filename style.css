@@ -1,27 +1,50 @@
 body {
     margin: 0;
     font-family: "Segoe UI", system-ui, sans-serif;
-    background: linear-gradient(135deg, #FFEFD0, #A3D9E2);
-    color: #485978;
+    background: #B22000;
+    color: #F0E7C8;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(240,231,200,0.08), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.06), transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(0,0,0,0.15), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
 }
 
 header {
     text-align: center;
     padding: 50px;
-    background: rgba(255, 255, 255, 0.65);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(72, 89, 120, 0.15);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(240, 231, 200, 0.2);
 }
 
 header h1 {
     margin: 0;
     font-family: 'Cinzel', serif;
     letter-spacing: 2px;
-    color: #232830;
+    color: #F0E7C8;
+    transition: transform 0.25s ease;
+}
+
+header h1:hover {
+    transform: translateY(-3px);
 }
 
 header p {
-    color: #485978;
+    color: #F0E7C8;
+    opacity: 0.85;
 }
 
 section {
@@ -31,26 +54,33 @@ section {
 }
 
 h2 {
-    color: #232830;
+    color: #F0E7C8;
     margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.contact h2 {
+    color: #F0E7C8;
 }
 
 section p {
     line-height: 1.6;
+    color: #F0E7C8;
 }
 
 .personal {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(240, 231, 200, 0.92);
     border-radius: 14px;
-    border: 1px solid rgba(72, 89, 120, 0.15);
+    border: 1px solid rgba(240, 231, 200, 0.3);
     padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .personal p {
     margin: 10px 0;
-    padding-left: 10px;
+    padding-left: 12px;
     border-left: 3px solid #FFB133;
-    color: #485978;
+    color: #232830;
 }
 
 .grid {
@@ -59,22 +89,22 @@ section p {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(240, 231, 200, 0.94);
     border-radius: 14px;
     padding: 20px;
     margin-bottom: 15px;
     display: inline-block;
     width: 100%;
-    border: 1px solid rgba(72, 89, 120, 0.15);
-    transition: all 0.25s ease;
+    border: 1px solid rgba(240, 231, 200, 0.3);
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
     border-color: #FFB133;
-    box-shadow: 0 10px 25px rgba(72, 89, 120, 0.15);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
 }
 
 .card::before {
@@ -93,11 +123,11 @@ section p {
 }
 
 .card h3 {
-    color: #232830;
+    color: #B22000;
 }
 
 .card p {
-    color: #485978;
+    color: #232830;
 }
 
 .contact {
@@ -106,49 +136,38 @@ section p {
 
 .contact a {
     text-decoration: none;
-    color: #485978;
+    color: #F0E7C8;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.6);
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
     transition: 0.25s ease;
 }
 
 .contact a:hover {
     color: #FFB133;
     transform: translateY(-2px);
+    background: rgba(255,255,255,0.15);
 }
 
 .material-symbols-outlined {
     font-size: 20px;
-    color: #232830;
+    color: #F0E7C8;
 }
 
 footer {
     text-align: center;
     padding: 20px;
     background: #232830;
-    color: #A3D9E2;
-}
-
-@media (max-width: 800px) {
-    .grid {
-        column-count: 2;
-    }
-}
-
-@media (max-width: 500px) {
-    .grid {
-        column-count: 1;
-    }
+    color: #F0E7C8;
 }
 
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(35, 40, 48, 0.6);
+    background: rgba(35, 40, 48, 0.7);
     backdrop-filter: blur(8px);
     display: none;
     align-items: center;
@@ -161,26 +180,37 @@ footer {
 }
 
 .modal {
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(240, 231, 200, 0.96);
     padding: 30px;
     border-radius: 16px;
     max-width: 500px;
     width: 85%;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
     animation: pop 0.25s ease;
 }
 
 .modal h3 {
-    color: #232830;
-    margin-bottom: 10px;
+    color: #B22000;
 }
 
 .modal p {
-    color: #485978;
+    color: #232830;
     line-height: 1.6;
 }
 
 @keyframes pop {
-    from { transform: scale(0.85); opacity: 0; }
+    from { transform: scale(0.9); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 800px) {
+    .grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 500px) {
+    .grid {
+        column-count: 1;
+    }
 }
