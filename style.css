@@ -214,3 +214,7 @@ footer {
         column-count: 1;
     }
 }
+
+.personal h2 {
+    color: #B22000;
+}
